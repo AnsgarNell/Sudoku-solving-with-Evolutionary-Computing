@@ -1,0 +1,23 @@
+# Number of individuals in the population
+IndividualsCount = 20000
+
+# Number of parents considered. Must be an odd number.
+ParentsCount = 500
+
+# Number of maximum generations
+MaxGenerations = 1000
+
+# Number of executions to be done
+ExecutionsCount = 10
+
+# Set if fixed or dynamic (fitness dependant) mutation rate should be used
+DynamicMutationRate = false
+
+# Mutation rate must be an integer between 0 and 100 (only used if DynamicMutationRate is false)
+MutationRate = 0.30
+
+# Mutation rate is calculated with MutationRateBase/FitnessMean
+MutationRateBase = 7.0
+
+# Test name used as ending for the three files where data will be stored
+TestName = test_name
