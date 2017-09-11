@@ -11,7 +11,7 @@ squares so that there are no repeated numbers neither in the 3 × 3 grids
 nor in the 9 × 9 grids columns nor rows, as it can be seen in the Fig.
 [1↓](#fig:Start-puzzle-(a)).
 
-![figure Blank.png](img/Blank.PNG) \
+![figure Blank.png](img/Blank.png) \
 
 (a) 
 
