@@ -1,7 +1,9 @@
-Ansgar Mikel Nell Artolazabal {.author}
+Sudoku solving with Evolutionary Computing 
 -----------------------------
 
-1 Introduction {.Section}
+(for an optimized viewing of formulas etc. please download the PDF version)
+
+1 Introduction 
 ==============
 
 A Sudoku is a puzzle pastime where a 9 × 9 grid is presented divided in
@@ -9,9 +11,9 @@ smaller 3 × 3 grids. Most of this grids spaces are blank, and others are
 filled with numbers between 1-9. The objective is to fill the blank
 squares so that there are no repeated numbers neither in the 3 × 3 grids
 nor in the 9 × 9 grids columns nor rows, as it can be seen in the Fig.
-[1↓](#fig:Start-puzzle-(a)).
+1.
 
-![figure Blank.png](img/Blank.png) \
+![figure Blank.png](img/Blank.png) 
 
 (a) 
 
@@ -33,13 +35,13 @@ the other hand, it recalls the eight queens problem, which have to be
 placed in a chess table avoiding eating each other. In a similar way,
 the Sudoku row and columns can’t have the same number two or more times.
 
-2 Constraint handling {.Section}
+2 Constraint handling
 =====================
 
 Resolving a CSP with Evolutionary Algorithms (EA) requires transforming
 the original problem into a constrained optimization problem (COP).
 There are several ways for achieving this. The next list shows the most
-common ones [[1](#biblio-1)]:
+common ones [1]:
 
 1.  A function is applied to the result so that infeasible solutions are
     penalized and their fitness is reduced. Usually the penalization is
@@ -54,7 +56,7 @@ common ones [[1](#biblio-1)]:
 The penalty function that will be used counts how many numbers are
 repeated in each row and column, or, to express it in another way, how
 many numbers are missing. Mathematically it can be expressed like
-[[4](#biblio-4)]:\\begin\_inset Separator latexpar\\end\_inset
+[4]:
 
 ​(1)
 *f*(*x*) = ^9^⎲⎳~*i* = 1~*g*~*i*~(*x*) + ^9^⎲⎳~*j* = 1~*h*~*j*~(*x*)  
@@ -63,18 +65,18 @@ many numbers are missing. Mathematically it can be expressed like
 In this case |.| indicates the number of same numerals in a row or
 column.
 
-3 Evolutionary Algorithm selection {.Section}
+3 Evolutionary Algorithm selection
 ==================================
 
 This problem is well suited to be resolved using Genetic Algorithms, as
 we want to find an optimal solution searching in a solution space
-[[6](#biblio-6)]. In this kind of EA the genes of the individuals evolve
+[6]. In this kind of EA the genes of the individuals evolve
 similarly to how evolution works in nature, selecting the fittest
 parents which will create offspring individuals. This will mutate with
 some probability optimizing their solution, so that every generation
 will be closer to the exact solution.
 
-3.1 Representation {.Subsection}
+3.1 Representation
 ------------------
 
 The genes chosen for this problem will represent the 9 × 9 through an
@@ -86,7 +88,7 @@ different solutions.
 There will be two ways for accessing the grid: an absolute one, where
 the used form is [9][9], and another one, where each sub-grid will be
 located in a [3][3] position in the grid, as can be seen in Fig.
-[2↓](#fig:-sub-arrays).
+2.
 
 ![figure 3x3\_subarrays.png](img/3x3_subarrays.png)
 
@@ -97,16 +99,16 @@ through mutation, recombination and initialization, they are converted
 into negative values. Therefor calculations are made with absolute
 values.
 
-3.2 Evaluation {.Subsection}
+3.2 Evaluation
 --------------
 
-As showed in formula [1↑](#eq:1), the evaluation will count how many
+As showed in formula [1], the evaluation will count how many
 numbers are repeated in each row and column, and the sum will be the
 individual’s fitness. Logically, if a solution is found there will be no
 duplicates and the fitness will sum zero, so this is an inverse fitness
 optimization problem where the main goal will be to reach zero.
 
-3.3 Recombination {.Subsection}
+3.3 Recombination
 -----------------
 
 There are four different recombination operators for permutation
@@ -138,7 +140,7 @@ columns.
 Figure 3 Sato’s row and columns fitness based crossover (taken from
 [[4](#biblio-4)])
 
-3.4 Mutation {.Subsection}
+3.4 Mutation
 ------------
 
 There are also four mutation types which can be selected when
@@ -151,7 +153,7 @@ It must be noted that the mutation probability will affect each 3 × 3
 grid separately, so for an individual the total probability of having a
 change in its numbers is nine times bigger.
 
-3.5 Parent Selection {.Subsection}
+3.5 Parent Selection
 --------------------
 
 The simplest parent selection method is the fitness proportional
@@ -166,17 +168,17 @@ The selection probability will be implemented with the roulette wheel
 algorithm. Tournament selection is dismissed because there is no problem
 to have knowledge of the entire population.
 
-3.6 Replacement {.Subsection}
+3.6 Replacement
 ---------------
 
 For survival selection, elitism will be used to preserve the current
 fittest members, but any other individual will be replaced by the
 offspring using age-based replacement.
 
-4 Parameters {.Section}
+4 Parameters
 ============
 
-4.1 Mutation rate, dynamic vs. fixed {.Subsection}
+4.1 Mutation rate, dynamic vs. fixed
 ------------------------------------
 
 Tests have been made to determine if a dynamic mutation rate (MR)
@@ -201,12 +203,12 @@ using a fixed MR, as it can be seen in the next analysis. The data were
 obtained after performing 50 executions for each type of MR, with a 3000
 members population, 500 parents through 1000 generations.
 
-### 4.1.1 Fitness {.Subsubsection}
+### 4.1.1 Fitness
 
 In the next figures the obtained fitness is shown, being zero the best
 value.
 
-### MBF {.Subsubsection-}
+### MBF
 
 ![figure MBF.png](img/MBF.png)
 
@@ -218,7 +220,7 @@ located on the right, including fixed MR 0.15-0.30, being the best the
 last one globally. Nevertheless, the dynamic group can be considered
 better than the fixed group.
 
-### SR {.Subsubsection-}
+### SR
 
 ![figure SR.png](img/SR.png)
 
@@ -228,12 +230,12 @@ The success rate measure results match the previous ones, having the
 fixed MR with 0.30 as its best member. Again, the dynamic group has
 better performance than the fixed group.
 
-### 4.1.2 Generations {.Subsubsection}
+### 4.1.2 Generations
 
 The next analysis is done based on how much generations have passed
 before finding the solution only when it is found.
 
-### AES {.Subsubsection-}
+### AES
 
 ![figure AES.png](img/AES.png)
 
@@ -245,7 +247,7 @@ that this measure is only taken over the successful runs. Therefor,
 those executions that have less SR can have better AES results if they
 get the solution quickly in the few times they find it.
 
-### Peak generations {.Subsubsection-}
+### Peak generations
 
 ![figure Peak.png](img/Peak.png)
 
@@ -258,7 +260,7 @@ Based on the obtained results, it can be concluded that the best choice
 would be to have a fixed mutation rate of 0.30, followed very closely by
 the dynamic MR with 7 as its *α* constant value.
 
-4.2 Population {.Subsection}
+4.2 Population
 --------------
 
 To study how the population count affects to the results, some test have
@@ -291,12 +293,12 @@ solution is found, when the success rate increases, less time is needed
 for that execution. This, together with the similar SR for the biggest
 populations (46% for 10000 and 48% for 20000) explain this data.
 
-### 4.2.1 Fitness {.Subsubsection}
+### 4.2.1 Fitness
 
 The next section analyzes how the population count affects to the
 obtained mean fitness and success rate.
 
-### MBF {.Subsubsection-}
+### MBF
 
 ![figure MBF\_Population.png](img/MBF_Population.png)
 
@@ -308,7 +310,7 @@ members population. It is noticeable that the difference between the 500
 and 1000 individuals populations is very slight, despite being twice
 bigger.
 
-### SR {.Subsubsection-}
+### SR
 
 ![figure SR\_Population.png](img/SR_Population.png)
 
@@ -317,12 +319,12 @@ Figure 9 Success Rate (SR) results for different populations
 The success rate measure results match the previous ones. Both the 10000
 and the 20000 are above 90% success rate (92% and 96% respectively).
 
-### 4.2.2 Generations {.Subsubsection}
+### 4.2.2 Generations
 
 Next the influence of the population count is measured in order to know
 how it affects the speed of finding a solution.
 
-### AES {.Subsubsection-}
+### AES
 
 ![figure AES\_Population.png](img/AES_Population.png)
 
@@ -334,7 +336,7 @@ average slightly more than 119 generations to find the solution. This,
 together with its success rate makes it a quick and reliable
 configuration.
 
-### Peak generations {.Subsubsection-}
+### Peak generations
 
 ![figure Peak\_Population.png](img/Peak_Population.png)
 
@@ -348,7 +350,7 @@ In conclusion the best option, despite its global execution time from 39
 minutes, is the biggest population as it has the maximum probability to
 find the Sudoku puzzle solution through various executions.
 
-5 Program Structure {.Section}
+5 Program Structure
 ===================
 
 The Sudoku solving application has been developed in Java using the
@@ -372,40 +374,40 @@ files:
 The program is divided into several packages and classes according to
 their function as explained next.
 
-5.1 ce\_activity6 {.Subsection}
+5.1 ce\_activity6
 -----------------
 
 This package contains those classes used for input/output actions:
 
-### CE\_Activity6\_Population {.Subsubsection-}
+### CE\_Activity6\_Population
 
 This class consists of a simple window where the desired best members
 data is shown.
 
-### DataWriter {.Subsubsection-}
+### DataWriter
 
 The three results files are created and populated with this class, as
 its name suggests.
 
-### InformationPanel {.Subsubsection-}
+### InformationPanel
 
 An interface class to share information between different classes.
 
-### MainWindow {.Subsubsection-}
+### MainWindow
 
 This class contains the main window of the application.
 
-### SudokuReader {.Subsubsection-}
+### SudokuReader
 
 Used to read the Sudoku puzzle from a text file.
 
-5.2 evolution {.Subsection}
+5.2 evolution
 -------------
 
 This is the main package, where the evolution motor resides. It is
 composed by two classes:
 
-### Evolution {.Subsubsection-}
+### Evolution
 
 The main evolutionary algorithm is located here, with the usual steps:
 
@@ -416,53 +418,53 @@ The main evolutionary algorithm is located here, with the usual steps:
 -   Mutation
 -   Replacement
 
-### Parameters {.Subsubsection-}
+### Parameters
 
 This class reads the parameters from the configuration file, and stores
 them to be used by other classes.
 
-5.3 individual {.Subsection}
+5.3 individual
 --------------
 
 It contains only a class, with the same name.
 
-### Individual {.Subsubsection-}
+### Individual
 
 This is the representation of each individual member. The most important
 variables are a 9x9 array to store the individual’s solution, and an
 integer to represent its fitness.
 
-5.4 steps {.Subsection}
+5.4 steps
 ---------
 
 This package extends every step from the evolutionary algorithm
 described above:
 
-### Initialization {.Subsubsection-}
+### Initialization
 
-### Evaluation {.Subsubsection-}
+### Evaluation
 
-### ParentSelection {.Subsubsection-}
+### ParentSelection
 
-### Recombination {.Subsubsection-}
+### Recombination
 
-### Mutation {.Subsubsection-}
+### Mutation
 
-### Replacement {.Subsubsection-}
+### Replacement
 
-5.5 utils {.Subsection}
+5.5 utils
 ---------
 
 Here we can find three auxiliary classes that order lists based on their
 fitness or probability:
 
-### IndSortByFitness {.Subsubsection-}
+### IndSortByFitness
 
-### IndSortByInverseFitness {.Subsubsection-}
+### IndSortByInverseFitness
 
-### IndSortByProbability {.Subsubsection-}
+### IndSortByProbability
 
-6 Conclusions {.Section}
+6 Conclusions
 =============
 
 Starting with a CSP, it has been transformed into a COP through
@@ -471,7 +473,7 @@ rates and recombination techniques, an efficient approximation has been
 obtained where a optimum parameters setting allows solving different
 Sudoku puzzles with an acceptable performance.
 
-References {.biblio}
+References
 ==========
 
 [1] Agoston E. Eiben, J. E. Smith. *Introduction to Evolutionary
