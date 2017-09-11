@@ -1,3 +1,4 @@
+[image1]: ./img/FSM.png
 <div id="globalWrapper">
 
 # Computación Evolutiva - Activity No. 6
@@ -16,7 +17,7 @@
 
 <div class="figure">
 
-<div class="PlainVisible"><span lang="es">![figure Blank.png](./img/Blank.png)</span>  
+<div class="PlainVisible"><span lang="es">[image1]: ./img/FSM.png</span>  
 <span lang="es">
 
 <div class="caption">(a) </div>
