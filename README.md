@@ -1,4 +1,3 @@
-[image1]: ./img/FSM.png
 <div id="globalWrapper">
 
 # Computación Evolutiva - Activity No. 6
@@ -17,7 +16,7 @@
 
 <div class="figure">
 
-<div class="PlainVisible"><span lang="es">[image1]: ./img/FSM.png</span>  
+<div class="PlainVisible"><span lang="es">![figure Blank.png](img/Blank.png)</span>  
 <span lang="es">
 
 <div class="caption">(a) </div>
@@ -63,7 +62,7 @@
 
 <div class="center">
 
-<div class="formula"><a class="eqnumber" name="eq:1">(1)</a> <span class="environment"><span class="arrayrow"><span class="arraycell align-r">_f_(_x_) = <span class="limits"><sup class="limit">9</sup><span class="limit">⎲</span><span class="limit">⎳</span><sub class="limit">_i_ = 1</sub></span>_g_<sub>_i_</sub>(_x_) + <span class="limits"><sup class="limit">9</sup><span class="limit">⎲</span><span class="limit">⎳</span><sub class="limit">_j_ = 1</sub></span>_h_<sub>_j_</sub>(_x_)</span> </span><span class="arrayrow"><span class="arraycell align-r"> </span> </span><span class="arrayrow"><span class="arraycell align-r">_g_<sub>_i_</sub>(_x_) = |_x_<sub>_i_</sub>|,  _h_<sub>_j_</sub>(_x_) = |_x_<sub>_j_</sub>|</span></span></span></div>
+<div class="formula"><a class="eqnumber" name="eq:1">(1)</a> <span class="environment"><span class="arrayrow"><span class="arraycell align-r">_f_(_x_) = <span class="limits"><sup class="limit">9</sup><span class="limit">⎲</span><span class="limit">⎳</span><sub class="limit">_i_ = 1</sub></span>_g_<sub>_i_</sub>(_x_) + <span class="limits"><sup class="limit">9</sup><span class="limit">⎲</span><span class="limit">⎳</span><sub class="limit">_j_ = 1</sub></span>_h_<sub>_j_</sub>(_x_)</span> </span><span class="arrayrow"><span class="arraycell align-r"></span> </span><span class="arrayrow"><span class="arraycell align-r">_g_<sub>_i_</sub>(_x_) = |_x_<sub>_i_</sub>|,  _h_<sub>_j_</sub>(_x_) = |_x_<sub>_j_</sub>|</span></span></span></div>
 
 </div>
 
