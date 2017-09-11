@@ -16,7 +16,7 @@
 
 <div class="figure">
 
-<div class="PlainVisible"><span lang="es">![figure Blank.png](img/Blank.png)</span>  
+<div class="PlainVisible"><span lang="es">![figure Blank.png](./img/Blank.png)</span>  
 <span lang="es">
 
 <div class="caption">(a) </div>
