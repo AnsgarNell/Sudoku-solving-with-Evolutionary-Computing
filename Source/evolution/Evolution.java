@@ -20,8 +20,8 @@ public class Evolution extends Thread{
     
     // List containing all the individuals that form the population
     ArrayList<Individual> population = new ArrayList<Individual>();        
-    ArrayList<Individual> offspring = new ArrayList<Individual>();;
-    ArrayList<Individual> parents = new ArrayList<Individual>();;
+    ArrayList<Individual> offspring = new ArrayList<Individual>();
+    ArrayList<Individual> parents = new ArrayList<Individual>();
     
     // Variables to keep track of the so far best individual's scores
     int minFitness;
